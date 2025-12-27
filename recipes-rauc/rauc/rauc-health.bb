@@ -22,7 +22,7 @@ SRC_URI = "git://github.com/Climber1987muc/rauc-marker.git;branch=main;protocol=
 # Entweder feste Revision:
 # SRCREV = "abcdef1234567890..."
 # oder für Entwicklung:
-SRCREV = "2d888434a89a48f7b6e356fa0c0d4d1c8c4d1c36"
+SRCREV = "8cb2e8389919a2130d05654ef417defe0fbfef38"
 
 S = "${WORKDIR}/git"
 

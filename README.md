@@ -35,12 +35,12 @@ meta-polygondata-rauc/
 ├── classes/
 │ └── polygondata-rauc-image.bbclass
 └── recipes-rauc/
-└── rauc/
+│ └── rauc/
 ├── rauc_%.bbappend
 ├── rauc-agent.bb
 ├── rauc-health.bb
 └── files/
-└── system.conf
+ └── system.conf
 ```
 ---
 

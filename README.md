@@ -28,7 +28,7 @@ in CI-Umgebungen und produktiven Systemen ausgelegt.
 ---
 
 ## Layer-Struktur
-
+```
 meta-polygondata-rauc/
 ├── conf/
 │ └── layer.conf
@@ -41,7 +41,7 @@ meta-polygondata-rauc/
 ├── rauc-health.bb
 └── files/
 └── system.conf
-
+```
 ---
 
 ## Voraussetzungen

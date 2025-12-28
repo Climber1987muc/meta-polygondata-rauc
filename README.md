@@ -66,13 +66,13 @@ Im Image-Recipe oder in einer Image-bbclass:
 
 inherit polygondata-rauc-image
 Die benötigten Pakete werden appendet, nicht überschrieben:
-rauc
-rauc-agent
-rauc-health
+- rauc
+- rauc-agent
+- rauc-health
 DISTRO_FEATURES
 Für eine saubere RAUC-Integration wird empfohlen, RAUC explizit als
 Distro-Feature zu aktivieren:
-DISTRO_FEATURES:append = " rauc"
+- DISTRO_FEATURES:append = " rauc"
 RAUC-Konfiguration
 Die Datei system.conf wird bewusst über diesen Layer bereitgestellt
 und nicht aus einem separaten Konfigurationspaket, um:

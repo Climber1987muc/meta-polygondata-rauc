@@ -39,6 +39,5 @@ RDEPENDS:${PN}:remove = "systemd"
 do_install:append() {
     rm -rf ${D}${datadir}/dbus-1 || true
     install -d ${D}${sysconfdir}/rauc
-    install -m 0644 ${UNPACKDIR}/system.conf ${D}${sysconfdir}/rauc/system.conf
 
 }

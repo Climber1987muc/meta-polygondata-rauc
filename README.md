@@ -1,12 +1,12 @@
 # meta-polygondata-rauc
 
 Yocto/OpenEmbedded Layer zur Integration von **RAUC OTA Updates** in eine
-Embedded-Linux-Distribution auf Basis von **OpenRC**.
-
+Embedded-Linux-Distribution auf Basis von **OpenRC** und ohne **DBUS** . 
+  
 Der Layer stellt eine saubere, reproduzierbare RAUC-Integration bereit,
 inklusive eigener Health-Checks und Agent-Komponenten, und ist für den Einsatz
 in CI-Umgebungen und produktiven Systemen ausgelegt.
-
+  
 ---
 
 ## Features

@@ -99,13 +99,11 @@ Status
 ✔ Produktiv einsetzbar
 Zielgruppe
 Dieser Layer richtet sich an:
-Embedded-Linux-Entwickler
-Yocto-/OpenEmbedded-Projekte
-Systeme mit OTA-Update-Anforderungen
+- Embedded-Linux-Entwickler
+- Yocto-/OpenEmbedded-Projekte
+- Systeme mit OTA-Update-Anforderungen
 industrielle und professionelle Linux-Plattformen
-Lizenz
-Projekt- und Firmenabhängig.
-Bitte entsprechend anpassen.
+Lizenz: MIT
 
 ---
 

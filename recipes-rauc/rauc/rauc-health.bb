@@ -125,5 +125,3 @@ OPENRC_SERVICES:${PN}      = " rauc-health "
 OPENRC_AUTO_ENABLE:${PN}   = "enable"
 
 
-# Pakete
-RDEPENDS:${PN} = ""

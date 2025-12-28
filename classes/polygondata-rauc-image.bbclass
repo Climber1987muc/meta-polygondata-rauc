@@ -3,7 +3,7 @@
 
 inherit polygondata-base-image
 
-IMAGE_INSTALL = " \
+IMAGE_INSTALL:append = " \
 		rauc \
 		rauc-health \
 		rauc-agent \

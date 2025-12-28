@@ -59,6 +59,7 @@ Layer zum Build hinzufügen:
 
 ```bash
 bitbake-layers add-layer meta-polygondata-rauc
+```
 Aktivierung im Image
 Der Layer bringt eine bbclass mit, um RAUC-Komponenten sauber in Images zu integrieren.
 Im Image-Recipe oder in einer Image-bbclass:

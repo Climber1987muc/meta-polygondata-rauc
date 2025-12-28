@@ -73,36 +73,39 @@ DISTRO_FEATURES
 Für eine saubere RAUC-Integration wird empfohlen, RAUC explizit als
 Distro-Feature zu aktivieren:
 - DISTRO_FEATURES:append = " rauc"
-RAUC-Konfiguration
-Die Datei system.conf wird bewusst über diesen Layer bereitgestellt
+RAUC-Konfiguration  
+Die Datei system.conf wird bewusst nicht über diesen Layer bereitgestellt
 und nicht aus einem separaten Konfigurationspaket, um:
 Paketkonflikte im RootFS zu vermeiden
 die RAUC-Konfiguration versionskontrolliert zu halten
 Pfad im Zielsystem:
-/etc/rauc/system.conf
-Git-Fetch via SSH
+- /etc/rauc/system.conf
+Git-Fetch via SSH  
 Dieser Layer verwendet bewusst SSH für Git-Fetches:
-keine Passwörter oder Tokens in Recipes
-geeignet für CI (Deploy-Keys)
-non-interaktive Builds
-Empfohlene Umgebung:
+keine Passwörter oder Tokens in Recipes 
+geeignet für CI (Deploy-Keys) 
+non-interaktive Builds  
+Empfohlene Umgebung:  
+``` bash
 export GIT_SSH_COMMAND="ssh -o BatchMode=yes -o StrictHostKeyChecking=yes"
-Reproduzierbarkeit
-SRCREV ist fixiert
-keine Überschreibung von IMAGE_INSTALL
-keine leeren RDEPENDS
-bekannte Yocto-Fallen (RootFS-Clashes, Paket-Overwrites) wurden vermieden
-Status
-✔ Build erfolgreich
-✔ RootFS konfliktfrei
-✔ CI-tauglich
-✔ Produktiv einsetzbar
+```
+Reproduzierbarkeit  
+
+keine Überschreibung von IMAGE_INSTALL 
+keine leeren RDEPENDS 
+bekannte Yocto-Fallen (RootFS-Clashes, Paket-Overwrites) wurden vermieden 
+Status:  
+✔ Build erfolgreich  
+✔ RootFS konfliktfrei  
+✔ CI-tauglich  
+✔ Produktiv einsetzbar  
 Zielgruppe
-Dieser Layer richtet sich an:
+Dieser Layer richtet sich an:  
 - Embedded-Linux-Entwickler
 - Yocto-/OpenEmbedded-Projekte
 - Systeme mit OTA-Update-Anforderungen
-industrielle und professionelle Linux-Plattformen
+  
+industrielle und professionelle Linux-Plattformen  
 Lizenz: MIT
 
 ---

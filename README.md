@@ -61,7 +61,7 @@ Layer zum Build hinzufügen:
 bitbake-layers add-layer meta-polygondata-rauc
 ```
 Aktivierung im Image
-Der Layer bringt eine bbclass mit, um RAUC-Komponenten sauber in Images zu integrieren.
+Der Layer bringt eine bbclass mit, um RAUC-Komponenten sauber in Images zu integrieren.  
 Im Image-Recipe oder in einer Image-bbclass:
 
 inherit polygondata-rauc-image
@@ -92,7 +92,7 @@ export GIT_SSH_COMMAND="ssh -o BatchMode=yes -o StrictHostKeyChecking=yes"
 Reproduzierbarkeit  
 
 keine Überschreibung von IMAGE_INSTALL 
-keine leeren RDEPENDS 
+keine leeren RDEPENDS  
 bekannte Yocto-Fallen (RootFS-Clashes, Paket-Overwrites) wurden vermieden 
 Status:  
 ✔ Build erfolgreich  

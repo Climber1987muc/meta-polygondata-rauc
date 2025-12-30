@@ -1,112 +1,81 @@
 # meta-polygondata-rauc
 
-Yocto/OpenEmbedded Layer zur Integration von **RAUC OTA Updates** in eine
-Embedded-Linux-Distribution auf Basis von **OpenRC** und ohne **DBUS** . 
-  
-Der Layer stellt eine saubere, reproduzierbare RAUC-Integration bereit,
-inklusive eigener Health-Checks und Agent-Komponenten, und ist für den Einsatz
-in CI-Umgebungen und produktiven Systemen ausgelegt.
-  
 ---
 
-## Features
+## Deutsch 🇩🇪
 
-- RAUC Integration für Yocto / OpenEmbedded
-- Unterstützung für OpenRC (kein systemd)
+Yocto/OpenEmbedded Layer zur Integration von **RAUC OTA Updates** in eine
+Embedded-Linux-Distribution auf Basis von **OpenRC** und **ohne DBus**.
+
+Der Layer stellt eine saubere und reproduzierbare RAUC-Integration bereit,
+inklusive eigener Health-Checks und Agent-Komponenten, und ist für den Einsatz
+in CI-Umgebungen sowie produktiven Systemen ausgelegt.
+
+### Features
+
+- RAUC-Integration für Yocto / OpenEmbedded
+- Unterstützung für OpenRC (kein systemd, kein DBus)
 - Eigene RAUC-Konfiguration (`system.conf`)
-- Separate Pakete für:
+- Separate Pakete:
   - `rauc`
   - `rauc-agent`
   - `rauc-health`
-- OTA-fähige Image-Erweiterung per bbclass
+- OTA-fähige Image-Erweiterung über bbclass
 - SSH-basierter Git-Fetch (CI- und Enterprise-tauglich)
-- Fokus auf:
-  - reproduzierbare Builds
-  - saubere Paketierung
-  - minimale Eingriffe in bestehende Images
+- Fokus auf reproduzierbare Builds und saubere Paketierung
 
----
+### Aktivierung
 
-## Layer-Struktur
+```bitbake
+inherit polygondata-rauc-image
+DISTRO_FEATURES:append = " rauc"
 ```
-meta-polygondata-rauc/
-├── conf/
-│ └── layer.conf
-├── classes/
-│ └── polygondata-rauc-image.bbclass
-└── recipes-rauc/
-│ └── rauc/
-├── rauc_%.bbappend
-├── rauc-agent.bb
-├── rauc-health.bb
-└── files/
- └── system.conf
-```
----
 
-## Voraussetzungen
-
-- Yocto / OpenEmbedded (poky)
-- meta-rauc Layer
-- OpenRC (z. B. via meta-openrc)
-- SSH-Zugriff auf die verwendeten Git-Repositories
-
----
-
-## Einbindung des Layers
-
-Layer zum Build hinzufügen:
+### Git (SSH)
 
 ```bash
-bitbake-layers add-layer meta-polygondata-rauc
-```
-Aktivierung im Image
-Der Layer bringt eine bbclass mit, um RAUC-Komponenten sauber in Images zu integrieren.  
-Im Image-Recipe oder in einer Image-bbclass:
-
-inherit polygondata-rauc-image
-Die benötigten Pakete werden appendet, nicht überschrieben:
-- rauc
-- rauc-agent
-- rauc-health
-DISTRO_FEATURES
-Für eine saubere RAUC-Integration wird empfohlen, RAUC explizit als
-Distro-Feature zu aktivieren:
-- DISTRO_FEATURES:append = " rauc"
-RAUC-Konfiguration  
-Die Datei system.conf wird bewusst nicht über diesen Layer bereitgestellt
-und nicht aus einem separaten Konfigurationspaket, um:
-Paketkonflikte im RootFS zu vermeiden
-die RAUC-Konfiguration versionskontrolliert zu halten
-Pfad im Zielsystem:
-- /etc/rauc/system.conf
-Git-Fetch via SSH  
-Dieser Layer verwendet bewusst SSH für Git-Fetches:
-keine Passwörter oder Tokens in Recipes 
-geeignet für CI (Deploy-Keys) 
-non-interaktive Builds  
-Empfohlene Umgebung:  
-``` bash
 export GIT_SSH_COMMAND="ssh -o BatchMode=yes -o StrictHostKeyChecking=yes"
 ```
-Reproduzierbarkeit  
-
-keine Überschreibung von IMAGE_INSTALL 
-keine leeren RDEPENDS  
-bekannte Yocto-Fallen (RootFS-Clashes, Paket-Overwrites) wurden vermieden 
-Status:  
-✔ Build erfolgreich  
-✔ RootFS konfliktfrei  
-✔ CI-tauglich  
-✔ Produktiv einsetzbar  
-Zielgruppe
-Dieser Layer richtet sich an:  
-- Embedded-Linux-Entwickler
-- Yocto-/OpenEmbedded-Projekte
-- Systeme mit OTA-Update-Anforderungen
-  
-industrielle und professionelle Linux-Plattformen  
-Lizenz: MIT
 
 ---
 
+## English 🇬🇧
+
+Yocto/OpenEmbedded layer for integrating **RAUC OTA updates** into an
+Embedded Linux distribution based on **OpenRC** and **without DBus**.
+
+This layer provides a clean and reproducible RAUC integration, including
+custom health checks and agent components. It is designed for CI environments
+and production systems.
+
+### Features
+
+- RAUC integration for Yocto / OpenEmbedded
+- OpenRC support (no systemd, no DBus)
+- Custom RAUC configuration (`system.conf`)
+- Separate packages:
+  - `rauc`
+  - `rauc-agent`
+  - `rauc-health`
+- OTA-capable image extension via bbclass
+- SSH-based Git fetch (CI- and enterprise-ready)
+- Focus on reproducible builds and clean packaging
+
+### Enabling
+
+```bitbake
+inherit polygondata-rauc-image
+DISTRO_FEATURES:append = " rauc"
+```
+
+### Git (SSH)
+
+```bash
+export GIT_SSH_COMMAND="ssh -o BatchMode=yes -o StrictHostKeyChecking=yes"
+```
+
+---
+
+## License
+
+MIT
